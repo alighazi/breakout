@@ -77,8 +77,7 @@ public class WorldRenderer implements Disposable {
         // (anchored to top left edge)
         renderGuiScore(batch);
         // draw FPS text (anchored to bottom right edge)
-        if (GamePreferences.instance.showFpsCounter)
-            renderGuiFpsCounter(batch);
+        renderGuiFpsCounter(batch);
         renderGuiGameOverMessage(batch);
         batch.end();
     }

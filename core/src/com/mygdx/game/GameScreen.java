@@ -37,7 +37,6 @@ public class GameScreen extends AbstractGameScreen {
 
     @Override
     public void show() {
-        GamePreferences.instance.load();
         worldController = new WorldController(game);
         worldRenderer = new WorldRenderer(worldController);
         Gdx.input.setCatchBackKey(true);

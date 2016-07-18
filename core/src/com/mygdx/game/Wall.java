@@ -25,6 +25,13 @@ public class Wall extends AbstractGameObject {
         origin.set(sprite.getOriginX(),sprite.getOriginY());
         bounds.set(0,0,dimension.x,dimension.y);
     }
+
+    @Override
+    public void update(float deltaTime) {
+        super.update(deltaTime);
+        bounds.setPosition(position);
+    }
+
     @Override
     public void render(SpriteBatch batch) {
         sprite.setPosition(position.x, position.y);

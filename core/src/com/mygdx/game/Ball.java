@@ -5,12 +5,14 @@ import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Circle;
 
 /**
  * Created by Superior Man on 3/26/2015.
  */
 public class Ball extends AbstractGameObject {
     Sprite sprite;
+    Circle circle;
     public Ball(){
         dimension.set(0.3f,0.3f);
         terminalVelocity.set(5,5);
@@ -23,7 +25,15 @@ public class Ball extends AbstractGameObject {
         sprite.setOrigin(sprite.getWidth()/2.0f,sprite.getHeight()/2.0f);
         origin.set(sprite.getOriginX(),sprite.getOriginY());
         bounds.set(0,0,dimension.x,dimension.y);
+        circle=new Circle(0,0,sprite.getWidth()/2.0f);
     }
+
+    @Override
+    public void update(float deltaTime) {
+        super.update(deltaTime);
+        circle.setPosition(sprite.getX()+sprite.getOriginX(), sprite.getY()+ sprite.getOriginY());
+    }
+
     @Override
     public void render(SpriteBatch batch) {
         sprite.setPosition(position.x,position.y);

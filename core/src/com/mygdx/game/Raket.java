@@ -28,6 +28,12 @@ public class Raket extends AbstractGameObject {
     }
 
     @Override
+    public void update(float deltaTime) {
+        super.update(deltaTime);
+        bounds.setPosition(position);
+    }
+
+    @Override
     public void render(SpriteBatch batch) {
         sprite.setPosition(position.x, position.y);
         sprite.draw(batch);
