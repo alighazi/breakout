@@ -39,11 +39,6 @@ public abstract class AbstractGameObject {
         position.y += velocity.y * deltaTime;
     }
 
-    public void undoMove(float deltaTime){
-        position.x -= velocity.x * deltaTime;
-        position.y -= velocity.y * deltaTime;
-    }
-
     public abstract void render(SpriteBatch batch);
 
     protected void updateMotionX(float deltaTime) {

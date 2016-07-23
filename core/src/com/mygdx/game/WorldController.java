@@ -35,15 +35,15 @@ public class WorldController extends InputAdapter {
         keepplayersInField();
         Ball b = level.ball;
         Raket p1 = level.player1;
-        float add=deltaTime/3;
+        float epsilon=0.01f;
         if (Intersector.overlaps(b.circle, level.left.sprite.getBoundingRectangle())) {
-             b.undoMove(deltaTime+=add);
+             b.position.x=level.left.position.x+level.left.dimension.x+epsilon;
             b.velocity.set(-b.velocity.x, b.velocity.y);
         }else if(Intersector.overlaps(b.circle, level.right.sprite.getBoundingRectangle())) {
-            b.undoMove(deltaTime+=add);
+            b.position.x=level.right.position.x-b.dimension.x-epsilon;
             b.velocity.set(-b.velocity.x, b.velocity.y);
         }else if (Intersector.overlaps(b.circle, p1.sprite.getBoundingRectangle())) {
-            b.undoMove(deltaTime+=add);
+            b.position.y=p1.position.y+p1.dimension.y+epsilon;
             b.velocity.set(b.velocity.x, -b.velocity.y);
         }
         checkgoal();
